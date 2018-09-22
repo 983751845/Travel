@@ -1,0 +1,70 @@
+<% include head.html%>
+<div class="layui-body">
+    <div style="padding: 15px;">
+        <span class="layui-breadcrumb">
+            <a href="/admin">首页</a>
+            <a><cite>门票信息管理</cite></a>
+        </span>
+        <hr>
+
+        <table class="layui-table  ">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>景点名称</th>
+                    <th>门票价格</th>
+                    <th>操作人</th>
+                    <th>最后添加/修改时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let c of ticketslist){ %>
+                <tr>
+                    <td>
+                        <%=c.adid%>
+                    </td>
+                    <td>
+                        <%=c.adname%>
+                    </td>
+                    <td>
+                        <%=c.adprice%>
+                    </td>
+                    <td>
+                        <%=c.username%>
+                    </td>
+                    <td>
+                        <%=c.addtimes.toLocaleString()%>
+                    </td>
+                    <td>
+                        <a href="###" class="delcate" cid="<%=c.adid%>">删除</a>
+                        |
+                        <a href="/admin/updatetickets?cid=<%=c.adid%>">修改</a>
+                    </td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+
+        <div id="test1"></div>
+    </div>
+</div>
+<% include foot.html%>
+<script src="/layui/layui.js"></script>
+        <script>
+            layui.use('laypage', function () {
+                var laypage = layui.laypage;
+
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+                        ,
+                    count: 3 //数据总数，从服务端得到
+                });
+            });
+        </script>

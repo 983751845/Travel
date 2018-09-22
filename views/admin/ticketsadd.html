@@ -1,0 +1,37 @@
+<% include head.html%>
+  <div class="layui-body">
+    <div style="padding: 15px;">
+        <span class="layui-breadcrumb">
+            <a href="/admin">首页</a>
+            <a><cite>门票信息添加</cite></a>
+        </span>
+        <hr>
+    
+        <form class="layui-form" action="" id="ticketadd">
+            <div class="layui-form-item">
+                <label class="layui-form-label">景点名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="adname" required lay-verify="required" placeholder="请输入景点名称" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">门票价格</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="adprice" required lay-verify="required" placeholder="请输入门票价格" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+    
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="button" lay-submit lay-filter="addprice">保存</button>
+                    <div class="biaoji"></div>
+                </div>
+            </div>
+        </form>
+    
+    </div>
+  </div>
+<% include foot.html%>
